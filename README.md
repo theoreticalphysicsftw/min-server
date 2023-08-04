@@ -17,16 +17,18 @@ as command line arguments. The root path is the executable directory.
 The function `Server::AddHandler(const char* endpointRegex, ConnectionHandler handler);` gives the ability to add custom handler for an entry point.
 The `ConnectionHandler` takes `ConnectionState` argument that contains info for the current connection and supports the following API:
 
+    StrView GetRequestBody() const;
     void AddHeader(CStr name, CStr value);
     void AddToBody(CStr contents);
     void SetResponseToJSON();
     void Reply(U32 code = 200);
-    ConnectionState();
-    ConnectionState(MgConnection* c, MgHttpMessage* hm, I ev);
+
     U32 GetRemoteIPv4Address() const;
     U16 GetRemotePort() const;
-    StrView GetRequestBody() const;
+    
+
     B IsSecure() const;
+    
     Str GetCookieValue(CStr valueName);
     void SetCookieValue(
                          CStr valueName,
