@@ -201,7 +201,8 @@ void Server::HttpListener(MgConnection* c, int ev, void* evData, void* fnData)
 
             for (auto& dir : servedDirs)
             {
-                if (mg_http_match_uri(hm, (dir + "/*").c_str()))
+                auto servedDirURI = (dir == "/") ? Str("/*") : dir + "/*";
+                if (mg_http_match_uri(hm, servedDirURI.c_str()))
                 {
                     ServeFile(&cs);
                     endpointMatched = true;
