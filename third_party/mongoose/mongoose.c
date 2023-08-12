@@ -1687,6 +1687,7 @@ static struct mg_str s_known_types[] = {
     MG_C_STR("pdf"), MG_C_STR("application/pdf"),
     MG_C_STR("shtml"), MG_C_STR("text/html; charset=utf-8"),
     MG_C_STR("tgz"), MG_C_STR("application/tar-gz"),
+    MG_C_STR("wasm"), MG_C_STR("application/wasm"),
     MG_C_STR("wav"), MG_C_STR("audio/wav"),
     MG_C_STR("webp"), MG_C_STR("image/webp"),
     MG_C_STR("zip"), MG_C_STR("application/zip"),
