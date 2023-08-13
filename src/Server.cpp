@@ -185,7 +185,10 @@ void Server::HttpListener(MgConnection* c, int ev, void* evData, void* fnData)
              mg_http_match_uri(hm, "/main_page.html")
            )
         {
-            ServeFile(&cs, "/main_page.html");
+            auto mainPage =
+                FileExists(DOCUMENT_ROOT"/main_page.html")?
+                "/main_page.html" : "/index.html";
+            ServeFile(&cs, mainPage);
         }
         else
         {
